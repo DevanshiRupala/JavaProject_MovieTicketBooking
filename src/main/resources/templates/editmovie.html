@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+	<title>Add Movie</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous">
+</head>
+<style>
+body{
+            background-image: url('/Image/new_add_bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            justify-content: center;
+			align-items: center;
+			width:80%;
+			margin:auto;
+			margin-left:30%;
+			margin-top:10%;
+			
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+
+</style>
+<body>
+	<div class="container mt-4">
+		<h2 class="mb-4" >Add Movie</h2>
+		<form action="/edit" th:object="${movie}">
+		<input type="hidden" th:value="${movie.id}" name="id">
+			<div class="form-group">
+				<label for="movieName"> Movie Name:</label>
+				<input type="text" class="form-control" id="movieName" name="title" th:value="${movie.title}" required>
+			</div>
+			<div class="form-group">
+				<label for="movieDescription">Movie Description:</label>
+				<input type="text" class="form-control" id="moviedes" name="description" th:value="${movie.description}" required>
+			</div>
+			<div class="form-group">
+				<label for="movieDescription">Theater Id:</label>
+				<input type="text" class="form-control" id="moviedes" name="theatre" th:value="${movie.theatre.id}" required>
+			</div>
+			<div class="form-group">
+				<label for="movieDuration">Release Date:</label>
+				<input type="date" class="form-control" id="movieDuration" name="releaseDate" th:value="${movie.releaseDate}" required>
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

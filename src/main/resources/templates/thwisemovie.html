@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+  <head>
+    <title>Movie Ticket Booking Form</title>
+    <style>
+      /* style for form layout */
+      body{
+        align-items: center;
+         background-image: url('/Image/Movie_bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      label {
+        margin: 20px 0;
+        font-weight: bold;
+      }
+
+      input {
+        
+        margin: 5px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+
+      }
+
+
+      input, select {
+        margin: 5px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        
+      }
+
+      button {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #d22222;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1  style="padding-left: 655px;">Booking Form</h1>
+    <br>
+    
+    <form action="/confirm" th:object="${th}">
+      <label for="theatreId">Theater Id:</label>
+      <input type="text" id="theatreId" name="theatre1" th:value="${th.name}" required style="padding-left: 155px;">
+      <input type="hidden" name="theatre" th:value="${th.id}">
+      
+       <label for="userId">User name:</label>
+      <input type="text" id="userId" name="user1" th:value="${user.username}" required style="padding-left: 100px;">
+     <input type="hidden" name="user" th:value="${user.id}">
+
+      <label for="movieName" th:each="m : ${movie}">Movie Name:</label>
+      <select id="movieName" name="movie" style="padding-inline: 80px;">
+        <th:block th:each="m : ${movie}">
+		<option th:value="${m.id}" th:text="${m.title}"></option>
+		</th:block>
+      </select>
+
+      <label for="seatNumber">Seat Number:</label>
+      <input type="number" id="seatNumber" name="numsTickets" required  style="padding-left: 155px;" >
+
+      <label for="seatType">Seat Type:</label>
+      <select id="seatType" name="seattype" style="padding-inline: 110px;">
+        <option value="Regular">Regular</option>
+        <option value="Premium">Premium</option>
+        <option value="VIP">VIP</option>
+      </select>
+
+      <br>
+      <button type="submit">Book Ticket</button>
+    </form>
+  </body>
+</html>

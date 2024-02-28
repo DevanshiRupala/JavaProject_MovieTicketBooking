@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.com">
+<head>
+	<title>Add Movie</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+		crossorigin="anonymous">
+</head>
+<style>
+body{
+            background-image: url('/Image/Movie_bg.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            justify-content: center;
+			align-items: center;
+			width:80%;
+			margin:auto;
+			margin-left:30%;
+			margin-top:10%;
+			
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 50%;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #d22222;
+}
+
+
+</style>
+<body>
+	<div class="container mt-4">
+		<h2 class="mb-4">Add Movie</h2>
+		<form action="/movies/add" method="POST">
+			<div class="form-group">
+				<label>Movie Name:</label>
+				<input type="text" class="form-control" id="movieName" name="title" required>
+			</div>
+			<div class="form-group">
+				<label>Movie Description:</label>
+				<input type="text" class="form-control" id="movieName" name="description" required>
+			</div>
+			<div class="form-group">
+				<label>Theater Id:</label>
+				<input type="number" class="form-control" id="movieName" name="theatre" required>
+			</div>
+			<div class="form-group">
+				<label>Release Date:</label>
+				<input type="date" class="form-control" id="movieDuration" name="releaseDate" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
